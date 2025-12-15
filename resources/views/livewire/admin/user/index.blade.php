@@ -1,6 +1,6 @@
 <x-layouts.app>
     <div>
-        <x-common.page-breadcrumb pageTitle="User Management" />
+        <x-common.page-breadcrumb pageTitle="Test Commit" />
 
         {{-- Flash Message --}}
         @if (session()->has('message'))
