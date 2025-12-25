@@ -40,7 +40,7 @@ class AuthController extends Controller
     // Show sign up form
     public function showSignUpForm()
     {
-        return view('livewire.auth.signup');
+        return view('livewire.admin.auth.signup');
     }
 
     // Handle sign up
@@ -69,7 +69,8 @@ class AuthController extends Controller
         //  Log in user
         Auth::login($user);
 
-        return redirect()->route('livewire.admin.dashboard');
+        //redirect to dashboard
+        return redirect()->route('dashboard');
     }
 
     // Handle logout
