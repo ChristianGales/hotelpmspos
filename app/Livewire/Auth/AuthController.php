@@ -56,7 +56,7 @@ class AuthController extends Controller
         $user = User::create([
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'user_type' => 'admin', // or 'guest' default
+            'user_type' => 'admin', // or 'guest' default change to 'admin'
         ]);
 
         // Create staff record 
