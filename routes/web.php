@@ -4,6 +4,8 @@ use App\Livewire\Admin\User\Index;
 use App\Livewire\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\PasswordResetController;
+// indicate what to use controller or livewire class
+use App\Livewire\Admin\User\Index as UserIndex;
 
 // Landing page
 Route::get('/', function () {
@@ -32,22 +34,33 @@ Route::post('/reset-password', [PasswordResetController::class, 'resetPassword']
 //         'admin' => \App\Http\Middleware\AdminMiddleware::class,
 //     ]);
 // })
+// Route::middleware('auth')->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('livewire.admin.dashboard');
+//     })->name('dashboard');
+
+//     // //user index route
+//     // Route::get('/user', function () {
+//     //     return view('livewire.admin.user.index');
+//     // })->name('user');
+
+//     Route::middleware('auth')->group(function () {
+//     Route::get('/user', UserIndex::class)->name('user.index'); 
+//     });
+
+
+    
+
+//     // Route::get('/user', Index::class)->name('user.index');
+//     // Route::resource('user', StaffController::class)->names('staff');
+//     // pages.livewire.admin.user.index
+    
+//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// });
+
+
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('livewire.admin.dashboard');
-    })->name('dashboard');
-
-    Route::get('/user', function () {
-        return view('livewire.admin.user.index');
-    })->name('user');
-
-    Route::get('/users', Index::class)->name('user.index');
-    
-    
-
-    // Route::get('/user', Index::class)->name('user.index');
-    // Route::resource('user', StaffController::class)->names('staff');
-    // pages.livewire.admin.user.index
-    
+    Route::get('/dashboard', fn() => view('livewire.admin.dashboard'))->name('dashboard');
+    Route::get('/user', UserIndex::class)->name('user.index'); 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

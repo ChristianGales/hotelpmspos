@@ -35,4 +35,18 @@ class User extends Authenticatable
     {
         return $this->hasOne(Staff::class);
     }
+
+    // Helper to handle the dual-model update logic
+    public function syncStaffRecord(array $data) {
+        return $this->staff()->updateOrCreate(
+            ['user_id' => $this->id],
+            [
+                'name' => $data['name'],
+                'is_active' => $data['is_active'] ?? true
+            ]
+        );
+    }
+    
+
+
 }
