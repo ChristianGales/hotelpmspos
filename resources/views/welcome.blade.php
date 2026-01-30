@@ -48,7 +48,6 @@
                 </div>
                 
                 <div class="flex items-center">
-                    {{--Change this guest login--}}
                     <a href="{{ route('signin') }}" class="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
                         Sign In
                     </a>
@@ -68,13 +67,7 @@
                 
                 <!-- Search Card -->
                 <div class="bg-white rounded-2xl shadow-2xl p-8">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-gray-700 text-sm font-semibold mb-2">Destinations</label>
-                            <input type="text" placeholder="New York" 
-                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        
+                    <div class="space-y-4">        
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-gray-700 text-sm font-semibold mb-2">Check in</label>
@@ -107,7 +100,7 @@
                             </div>
                         </div>
                         
-                        <button class="w-full px-8 py-4 bg-blue-500 text-white rounded-lg font-bold hover:bg-blue-600 transition text-lg">
+                        <button href="{{ route('signin') }}" class="w-full px-8 py-4 bg-blue-500 text-white rounded-lg font-bold hover:bg-blue-600 transition text-lg">
                             Search
                         </button>
                     </div>

@@ -43,14 +43,14 @@ class Create extends Component
     {
         $this->validate();
 
-        // Create user
+        // Create user first as login credentials
         $user = User::create([
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'user_type' => $this->user_type,
         ]);
 
-        // Create staff
+        // then create records in the staff table for other info
         Staff::create([
             'user_id' => $user->id,
             'name' => $this->name,
